@@ -13,7 +13,7 @@ def CheckPassword(password):
     badFeedback = []
     
     
-    # Check length
+    # Checking length
     if len(password) >= 12:
         score += 3
         goodFeedback.append("Amazing length: 12+ characters")
@@ -23,28 +23,28 @@ def CheckPassword(password):
     else:
         badFeedback.append("Password is too short. Use >= 8 characters")
     
-    # Check for uppercase letters
+    # Checking for uppercase letters
     if re.search(r'[A-Z]', password):
         score += 1
         goodFeedback.append("Contains at least one uppercase letter")
     else:
         badFeedback.append("Add uppercase letter(s) to password")
     
-    # Check for lowercase letters
+    # Checking for lowercase letters
     if re.search(r'[a-z]', password):
         score += 1
         goodFeedback.append("Contains at least one lowercase letter")
     else:
         badFeedback.append("Add lowercase letter(s) to password")
     
-    # Check for numbers
+    # Checking for numbers
     if re.search(r'\d', password):
         score += 1
         goodFeedback.append("Contains at least one number")
     else:
         badFeedback.append("Add number(s) to your password")
     
-    # Check for special characters
+    # Checking for special characters
     if re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
         score += 2
         goodFeedback.append("Contains at least one special character")
@@ -63,18 +63,18 @@ def CheckPassword(password):
         score += 2
         goodFeedback.append("Multiple numbers, great job!")
     
-    # Check for common patterns
+    # Checking for common patterns
     common_patterns = ['password', '123456', 'abc123', 'admin']
     if any(pattern in password.lower() for pattern in common_patterns):
         score = max(0, score - 5)
         badFeedback.append("Uses a common password, susceptible to an attack")
 
-    # Check for repeated characters, same character repeated 3+ times
+    # Checking for repeated characters, same character repeated 3+ times
     if re.search(r'(.)\1{2,}', password):
         score = max(0, score - 1)
         badFeedback.append("Avoid repeating characters")
     
-    # Determine strength category
+    # Determining strength category
     if score >= 8:
         strength = "STRONG"
     elif score >= 5:
