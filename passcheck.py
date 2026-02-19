@@ -131,9 +131,9 @@ def main():
                 print("\n No specific feedback available.")
             
         elif choice == '2':
-            print("\n" + "="*40)
+            print("\n" + "=============================")
             print("HOW TO CREATE STRONG PASSWORDS:")
-            print("="*40)
+            print("\n" + "=============================")
             print("\n DO:")
             print("  • Use at least 12 characters")
             print("  • Mix uppercase, lowercase, numbers, and symbols")
